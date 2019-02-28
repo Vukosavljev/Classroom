@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-import Student from '../components/Student'
+import Student from '../components/Student/Student'
+import Summary from '../components/Summary/Summary'
+import './Classroom.scss'
+
 
 export default class ClassromContainer extends Component {
     state = {
@@ -32,9 +35,15 @@ export default class ClassromContainer extends Component {
         />)
 
     return (
-      <div style={{display: 'flex', flexWrap:'wrap'}} >
-        {students}
-      </div>
+        <>
+            <div className="Classroom" >
+                {students}
+            </div>
+            <div className="Summary" >
+                <Summary />
+            </div>
+   
+        </>
     )
   }
 }

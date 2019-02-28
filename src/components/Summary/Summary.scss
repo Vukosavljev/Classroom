@@ -1,0 +1,17 @@
+.summaryWrapper {
+    flex-basis: 0 1 200px;
+    border: 1px solid black;
+    margin: 20px;
+    box-shadow: 2px 2px grey;
+    p {
+        text-align: left;
+        padding: 10px;
+    }
+    .btn {
+        font-size: 1.2rem;
+        margin: 8px;
+    }
+    .reset {
+        margin-right: 150px;
+    }
+}

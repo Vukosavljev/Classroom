@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import ClassromContainer from './containers/ClassromContainer'
-import './App.css';
+import ClassroomContainer from './containers/ClassroomContainer'
+import './App.scss';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <ClassromContainer />
+        <ClassroomContainer />
       </div>
     );
   }
