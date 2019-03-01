@@ -13,6 +13,7 @@
     margin: 5px;
     span {
         padding: 0 10px;
+        text-transform: capitalize;
     }
 }
 
@@ -21,4 +22,5 @@
     width: 15px;
     height: 15px;
     margin: 5px;
+    cursor: pointer;
 }

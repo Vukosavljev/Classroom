@@ -17,7 +17,7 @@ export default function student({ addAttendace, name, attendace }) {
       <h4>
         {attendace ?
             <div className="images">
-                <img src={require(`../../assets/images/${attendace}.png`)} alt="present" className="img" />
+                <img src={require(`../../assets/images/${attendace}.png`)} alt="present" className="img" style={{cursor: 'context-menu'}} />
                 <span>{attendace}</span> 
             </div> :
             (
