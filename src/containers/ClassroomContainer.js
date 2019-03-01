@@ -10,12 +10,12 @@ export default class ClassromContainer extends Component {
         super(props);
         this.state = {
             students: [
-                {name: 'Marko', id: 1, attendace: null}, {name: 'Pera', id: 2, attendace: null}, 
-                {name: 'Mika', id: 3, attendace: null}, {name: 'Perica', id: 4, attendace: null}, 
-                {name: 'Aca', id: 5, attendace: null}, {name: 'Milos', id: 6, attendace: null},
-                {name: 'Marina', id: 7, attendace: null}, {name: 'Ana', id: 8, attendace: null}, 
-                {name: 'Milena', id: 9, attendace: null}, {name: 'Dragana', id: 10, attendace: null}, 
-                {name: 'Milica', id: 11, attendace: null}, {name: 'Ivana', id: 12, attendace: null},
+                {name: 'Marko', id: 1, attendance: null}, {name: 'Pera', id: 2, attendance: null}, 
+                {name: 'Mika', id: 3, attendance: null}, {name: 'Perica', id: 4, attendance: null}, 
+                {name: 'Aca', id: 5, attendance: null}, {name: 'Milos', id: 6, attendance: null},
+                {name: 'Marina', id: 7, attendance: null}, {name: 'Ana', id: 8, attendance: null}, 
+                {name: 'Milena', id: 9, attendance: null}, {name: 'Dragana', id: 10, attendance: null}, 
+                {name: 'Milica', id: 11, attendance: null}, {name: 'Ivana', id: 12, attendance: null},
             ],
             present: 0,
             late: 0,
@@ -24,10 +24,10 @@ export default class ClassromContainer extends Component {
         }
     }
 
-    addAttendaceHandler = (e, id) => {
+    addAttendanceHandler = (e, id) => {
         const attendStudents = [...this.state.students].map( student => {
             if (student.id === id) {
-                student.attendace = e;
+                student.attendance = e;
             }
             return student;
         })
@@ -35,19 +35,18 @@ export default class ClassromContainer extends Component {
             return {[e]: state[e] + 1};
         });
         this.setState({ students: attendStudents });
-        console.log(attendStudents)
+
     }
 
-    resetAttendace = () => {
+    resetattendance = () => {
         const resetStudents = [...this.state.students];
-        resetStudents.forEach( student => student.attendace = "");
-        console.log(resetStudents)
+        resetStudents.forEach( student => student.attendance = "");
+
         this.setState({ students: resetStudents, present: 0, late: 0, absent: 0, done: false});
     }
 
     doneClickHandler = () => {
         this.setState({done: true})
-        console.log(this.state)
     }
 
     
@@ -56,8 +55,8 @@ export default class ClassromContainer extends Component {
     const students = this.state.students.map( student => 
         <Student key={student.id}
         name={student.name}
-        attendace={student.attendace}  
-        addAttendace={(e) => this.addAttendaceHandler(e.target.alt, student.id)}
+        attendance={student.attendance}  
+        addAttendance={(e) => this.addAttendanceHandler(e.target.alt, student.id)}
         />)
 
     return (
@@ -68,12 +67,13 @@ export default class ClassromContainer extends Component {
             <div className="Summary" >
                 <Summary 
                 attending={this.state}
-                reset={this.resetAttendace}
+                reset={this.resetattendance}
                 doneClicked={this.doneClickHandler}
                  />
             </div>
-            <Modal />
-   
+            <Modal 
+            students={this.state.students}
+            done={this.state.done} />
         </>
     )
   }

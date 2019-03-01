@@ -14,7 +14,7 @@ export default function Summary(props) {
       <p>Unmarked: {unmarked}</p>
       <hr/>
       <button className="reset btn" onClick={props.reset} >Reset</button>
-      <button className="done btn"  onClick={props.doneClicked} >Done</button>
+      <button className="done btn"  onClick={props.doneClicked} disabled={unmarked !== 0} >Done</button>
       {/* for done btn ----- disabled={unmarked !== 0} */}
     </div>
   )

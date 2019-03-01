@@ -1,9 +1,11 @@
 .Classroom {
+    z-index: 1;
     display: flex;
     flex-wrap: wrap;
 }
 
 .Summary {
+    z-index: 1;
     display: flex;
     justify-content: flex-end;
 }

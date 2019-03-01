@@ -5,26 +5,26 @@ import late from '../../assets/images/late.png'
 import absent from '../../assets/images/absent.png'
 import './Student.scss'
 
-export default function student({ addAttendace, name, attendace }) {
+export default function student({ addAttendance, name, attendance }) {
 
 
   return (
     <div className="studentWrapper" >
       <div>
-          <img src={image} alt="student" style={{height: '50px'}}/>
+          <img src={image} alt="student" className="Student-img"/>
       </div>
       <h4>{name}</h4>
       <h4>
-        {attendace ?
+        {attendance ?
             <div className="images">
-                <img src={require(`../../assets/images/${attendace}.png`)} alt="present" className="img" style={{cursor: 'context-menu'}} />
-                <span>{attendace}</span> 
+                <img src={require(`../../assets/images/${attendance}.png`)} alt="present" className="img" style={{cursor: 'context-menu'}} />
+                <span>{attendance}</span> 
             </div> :
             (
             <div className="images">
-                <img src={present} alt="present" className="img" onClick={addAttendace} />
-                <img src={late} alt="late" className="img" onClick={addAttendace}/>
-                <img src={absent} alt="absent" className="img" onClick={addAttendace}/>
+                <img src={present} alt="present" className="img" onClick={addAttendance} />
+                <img src={late} alt="late" className="img" onClick={addAttendance}/>
+                <img src={absent} alt="absent" className="img" onClick={addAttendance}/>
             </div>
             )
         }

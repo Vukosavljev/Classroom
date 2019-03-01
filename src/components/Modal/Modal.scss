@@ -1,0 +1,21 @@
+.Modal {
+    position: fixed;
+    background-color: #ccc; 
+    z-index: 10;
+    width: 70%;
+    height: 70%;
+    top: -70%;
+    left: 15%;
+    transition: .3s ease-in;
+    h2 {
+        margin: 30px;
+    }
+    ul {
+        list-style: none;
+        li {
+            padding: 10px;
+            text-align: left;
+            margin-left: 20px;
+        }
+    }
+}
