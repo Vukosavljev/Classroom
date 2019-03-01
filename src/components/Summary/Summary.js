@@ -3,17 +3,19 @@ import './Summary.scss'
 
 export default function Summary(props) {
 
-    // const {present, late, absent, unmarked} = props.attending;
+    const {present, late, absent, students} = props.attending;
+    const unmarked = students.length - (present + late + absent);
 
   return (
     <div className="summaryWrapper" >
-      {/* <p>Present: {present} </p>
+      <p>Present: {present} </p>
       <p>Late: {late} </p>
       <p>Absent: {absent} </p>
-      <p>Unmarked: {unmarked} </p> */}
+      <p>Unmarked: {unmarked}</p>
       <hr/>
-      <button className="reset btn" >Reset</button>
-      <button className="done btn">Done</button>
+      <button className="reset btn" onClick={props.reset} >Reset</button>
+      <button className="done btn"  onClick={props.doneClicked} >Done</button>
+      {/* for done btn ----- disabled={unmarked !== 0} */}
     </div>
   )
 }
