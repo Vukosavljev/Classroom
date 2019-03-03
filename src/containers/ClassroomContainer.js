@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Student from '../components/Student/Student';
 import Summary from '../components/Summary/Summary';
 import Modal from '../components/Modal/Modal';
+import Info from '../components/Info/Info';
 import './Classroom.scss'
 
 
@@ -21,7 +22,8 @@ export default class ClassromContainer extends Component {
             present: 0,
             late: 0,
             absent: 0,
-            done: false
+            done: false,
+            showInfo: false,
         }
     }
 
@@ -62,21 +64,28 @@ export default class ClassromContainer extends Component {
         }
         this.removeModal()
     }
+
+    showInfoHandler = (id) => {
+        console.log(id)
+    } 
     
   render() {
 
     const students = this.state.students.map( student => 
         <Student key={student.id}
         name={student.name}
+        id={student.id}
         attendance={student.attendance}  
         addAttendance={(e) => this.addAttendanceHandler(e.target.id, student.id)}
+        showInfo={() => this.showInfoHandler(student.id)}
         />)
 
     return (
         <>
-            <div className="Classroom" >
+            <div className="ClassroomContainer" >
                 {students}
             </div>
+
             <div className="Summary" >
                 <Summary 
                 attending={this.state}
@@ -84,11 +93,14 @@ export default class ClassromContainer extends Component {
                 doneClicked={this.doneClickHandler}
                  />
             </div>
+
             <Modal 
             students={this.state.students}
             done={this.state.done} 
             removeModal={this.removeModal}
             keyPress={this.onEscapePress} />
+
+            <Info  students={this.state.students} />
         </>
     )
   }

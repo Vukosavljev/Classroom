@@ -9,7 +9,7 @@ export default function Modal({ students, done, removeModal, keyPress }) {
     <div className="modal-wrapper" style={done ? {top: '0%'}: null} onClick={removeModal}>
         <div className="Modal" style={done ? {top: '15%'}: null}
         onClick={ proxy => proxy.stopPropagation()}
-        onKeyDown={keyPress}  tabIndex="1" autoFocus={true} >
+        onKeyDown={keyPress}  tabIndex="0" autoFocus={true} >
         <h2>Attending list</h2>
         <i className="fa 5x fa-times" onClick={removeModal} ></i>
         <ul>

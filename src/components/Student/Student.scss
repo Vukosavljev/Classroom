@@ -1,29 +1,41 @@
 .studentWrapper {
     flex: 1 0 200px;
+    position: relative;
     border: 1px solid black;
     margin: 20px;
     box-shadow: 2px 2px grey;
-}
 
-.images {
-    display: flex;
-    justify-content: space-around;
-    align-content: center;
-    border: 1px solid black;
-    margin: 5px;
-    span {
-        padding: 0 10px;
-        text-transform: capitalize;
+    .Student-img {
+        height: 50px;
+    }
+
+    .Info-btn {
+        position: absolute;
+        top: 4%;
+        right: 2%;
+        padding: 4px 8px;
+        cursor: pointer;
+        background-color: rgb(200, 231, 154) 
+    }
+
+    .images {
+        display: flex;
+        justify-content: space-around;
+        align-content: center;
+        border: 1px solid black;
+        margin: 5px;
+        span {
+            padding: 0 10px;
+            text-transform: capitalize;
+        }
+    }
+    
+    .img {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        margin: 5px;
+        cursor: pointer;
     }
 }
 
-.img {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    margin: 5px;
-    cursor: pointer;
-}
-.Student-img {
-    height: 50px;
-}

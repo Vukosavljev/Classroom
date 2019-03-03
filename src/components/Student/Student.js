@@ -6,13 +6,14 @@ import late from '../../assets/images/late.png'
 import absent from '../../assets/images/absent.png'
 import './Student.scss'
 
-export default function student({ addAttendance, name, attendance }) {
+export default function student({ addAttendance, name, attendance, showInfo }) {
 
 
   return (
     <div className="studentWrapper" >
       <div>
           <img src={image} alt="student" className="Student-img"/>
+          <button onClick={showInfo} className="Info-btn" >Info</button>
       </div>
       <h4>{name}</h4>
       <h4>
