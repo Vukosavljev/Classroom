@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
-import Student from '../components/Student/Student'
-import Summary from '../components/Summary/Summary'
-import Modal from '../components/Modal/Modal'
+import React, { Component } from 'react';
+// import ReactDOM from 'react-dom';
+import Student from '../components/Student/Student';
+import Summary from '../components/Summary/Summary';
+import Modal from '../components/Modal/Modal';
 import './Classroom.scss'
 
 
@@ -49,6 +50,18 @@ export default class ClassromContainer extends Component {
         this.setState({done: true})
     }
 
+    removeModal = (e) => {
+        // e.stopPropagation();
+        this.setState({ done: false });
+    }
+
+    onEscapePress = (e) => {
+        console.log(e.keyCode);
+        if (e.keyCode === 27) {
+            console.log(123)
+        }
+        this.removeModal()
+    }
     
   render() {
 
@@ -56,7 +69,7 @@ export default class ClassromContainer extends Component {
         <Student key={student.id}
         name={student.name}
         attendance={student.attendance}  
-        addAttendance={(e) => this.addAttendanceHandler(e.target.alt, student.id)}
+        addAttendance={(e) => this.addAttendanceHandler(e.target.id, student.id)}
         />)
 
     return (
@@ -73,7 +86,9 @@ export default class ClassromContainer extends Component {
             </div>
             <Modal 
             students={this.state.students}
-            done={this.state.done} />
+            done={this.state.done} 
+            removeModal={this.removeModal}
+            keyPress={this.onEscapePress} />
         </>
     )
   }

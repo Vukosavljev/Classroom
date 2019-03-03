@@ -1,21 +1,35 @@
-.Modal {
+.modal-wrapper {
+    background-color: rgba( #000, .5);
     position: fixed;
-    background-color: #ccc; 
-    z-index: 10;
-    width: 70%;
-    height: 70%;
-    top: -70%;
-    left: 15%;
-    transition: .3s ease-in;
-    h2 {
-        margin: 30px;
-    }
-    ul {
-        list-style: none;
-        li {
-            padding: 10px;
-            text-align: left;
-            margin-left: 20px;
+    z-index: 5;
+    width: 100vw;
+    height: 100vh;
+    .Modal {
+        position: fixed;
+        background-color: rgb(236, 236, 236); 
+        z-index: 10;
+        width: 70%;
+        height: 70%;
+        top: -70%;
+        left: 15%;
+        transition: .3s ease-in;
+        h2 {
+            margin: 30px;
+        }
+        .fa-times {
+            position: absolute;
+            top: 2%;
+            right: 2%;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        ul {
+            list-style: none;
+            li {
+                padding: 10px;
+                text-align: left;
+                margin-left: 20px;
+            }
         }
     }
 }
