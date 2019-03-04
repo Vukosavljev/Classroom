@@ -11,7 +11,7 @@ export default function Modal({ students, done, removeModal, keyPress }) {
         onClick={ proxy => proxy.stopPropagation()}
         onKeyDown={keyPress}  tabIndex="0" autoFocus={true} >
         <h2>Attending list</h2>
-        <i className="fa 5x fa-times" onClick={removeModal} ></i>
+        <i className="fa fa-times" onClick={removeModal} ></i>
         <ul>
             <li>Present: {showStudents(students, 'present')} </li>
             <li>Late: {showStudents(students, 'late')} </li>

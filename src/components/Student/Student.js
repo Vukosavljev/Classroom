@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 // import 'font-awesome/css/font-awesome.min.css';
 import image from '../../assets/images/student.png'
 import present from '../../assets/images/present.png'
@@ -13,7 +14,10 @@ export default function student({ addAttendance, name, attendance, showInfo }) {
     <div className="studentWrapper" >
       <div>
           <img src={image} alt="student" className="Student-img"/>
-          <button onClick={showInfo} className="Info-btn" >Info</button>
+          <button onClick={showInfo} className="Info-btn" >
+            <Link to="/student-info">Info</Link>
+          </button>
+
       </div>
       <h4>{name}</h4>
       <h4>

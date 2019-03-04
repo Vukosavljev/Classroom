@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import ReactDOM from 'react-dom';
+import { Route } from 'react-router-dom'
 import Student from '../components/Student/Student';
 import Summary from '../components/Summary/Summary';
 import Modal from '../components/Modal/Modal';
@@ -23,7 +23,7 @@ export default class ClassromContainer extends Component {
             late: 0,
             absent: 0,
             done: false,
-            showInfo: false,
+            showInfoIdStudent: null,
         }
     }
 
@@ -62,11 +62,11 @@ export default class ClassromContainer extends Component {
         if (e.keyCode === 27) {
             console.log(123)
         }
-        this.removeModal()
+        this.removeModal();
     }
 
     showInfoHandler = (id) => {
-        console.log(id)
+        this.setState({ showInfoIdStudent: id });
     } 
     
   render() {
@@ -82,17 +82,21 @@ export default class ClassromContainer extends Component {
 
     return (
         <>
-            <div className="ClassroomContainer" >
-                {students}
-            </div>
+            <Route path="/" exact render={() => (
+                <>
+                    <div className="ClassroomContainer" >
+                        {students}
+                    </div>
 
-            <div className="Summary" >
-                <Summary 
-                attending={this.state}
-                reset={this.resetattendance}
-                doneClicked={this.doneClickHandler}
-                 />
-            </div>
+                    <div className="Summary" >
+                        <Summary 
+                        attending={this.state}
+                        reset={this.resetattendance}
+                        doneClicked={this.doneClickHandler}
+                        />
+                    </div>
+                </>
+            )} />
 
             <Modal 
             students={this.state.students}
@@ -100,7 +104,9 @@ export default class ClassromContainer extends Component {
             removeModal={this.removeModal}
             keyPress={this.onEscapePress} />
 
-            <Info  students={this.state.students} />
+            <Route path="/student-info"
+            render={() => <Info stateInfo={this.state} /> }/> 
+            
         </>
     )
   }
