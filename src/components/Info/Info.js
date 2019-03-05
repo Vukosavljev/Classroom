@@ -10,7 +10,7 @@ export default function Info(props) {
     var {name, id, attendance} = studentInfo[0];
   }
 
-  console.log(props)
+
   return (
     <div className="Student-info">
         <h1>Student Details</h1>

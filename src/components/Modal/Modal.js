@@ -5,11 +5,19 @@ import 'font-awesome/css/font-awesome.min.css';
 
 export default function Modal({ students, done, removeModal, keyPress }) {
 
+    if (done) {
+        document.getElementById('Modal').focus();
+    }
+
   return (
-    <div className="modal-wrapper" style={done ? {top: '0%'}: null} onClick={removeModal}>
-        <div className="Modal" style={done ? {top: '15%'}: null}
+    <div className="modal-wrapper" style={done ? {top: '0%'}: null}
+    onClick={removeModal}
+    >
+        <div id="Modal" className="Modal" style={done ? {top: '15%'}: null}
+        onKeyUp={keyPress}
+        tabIndex="0"
         onClick={ proxy => proxy.stopPropagation()}
-        onKeyDown={keyPress}  tabIndex="0" autoFocus={true} >
+        >
         <h2>Attending list</h2>
         <i className="fa fa-times" onClick={removeModal} ></i>
         <ul>

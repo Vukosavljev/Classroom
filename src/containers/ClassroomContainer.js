@@ -58,11 +58,11 @@ export default class ClassromContainer extends Component {
     }
 
     onEscapePress = (e) => {
-        console.log(e.keyCode);
+        // console.log(e.keyCode);
         if (e.keyCode === 27) {
-            console.log(123)
+            this.removeModal();
         }
-        this.removeModal();
+        console.log(123)
     }
 
     showInfoHandler = (id) => {
