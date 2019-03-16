@@ -17,7 +17,7 @@ export default class Student extends Component {
         <div>
           <img src={image} alt="student" className="Student-img" />
           <button onClick={() => showInfoHandler(id)} className="Info-btn" >
-            <Link to="/student-info">Info</Link>
+            <Link to={"/student-info/" + name}>Info</Link>
           </button>
 
         </div>

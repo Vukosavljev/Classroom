@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Info.scss';
 
 class Info extends Component {
@@ -19,9 +19,9 @@ class Info extends Component {
               <li>Id: {id}</li>
               <li>Attendance: {attendance}</li>
           </ul>
-          <Link to="/" >
+          <NavLink to={"/"} >
               Back
-          </Link>
+          </NavLink>
 
       </div>
     )

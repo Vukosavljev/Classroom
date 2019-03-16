@@ -99,7 +99,6 @@ export default class ClassromContainer extends Component {
 
                 <Route path="/student-info"
                     render={() => <Info stateInfo={this.state} />}
-                    // :id
                 />
                 </Switch>
 
